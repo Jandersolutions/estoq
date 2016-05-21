@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" data-ng-app="estoq">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="device-width, initial-scale=1">
+        <title>Estoq</title>
+        <!-- Bootstrap -->
+        <link href="assets/bootswatch/paper/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <style>
+            .fa{
+                margin-right: 10px;
+                color: #318530; 
+            }   
+            body{
+                text-rendering: auto;
+                background:#EDEDED;
+            }
+            .table-bordered>thead>tr>th, 
+            .table-bordered>tbody>tr>th, 
+            .table-bordered>tfoot>tr>th, 
+            .table-bordered>thead>tr>td, 
+            .table-bordered>tbody>tr>td, 
+            .table-bordered>tfoot>tr>td {
+             border: 1px solid #000000;}
+        </style>
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+        <main class="container" >
+            <section class="row">
+                <article class="col-lg-12 col-xs-12">
+                    <h1><i class="fa fa-cubes" aria-hidden="true"></i>Estoq</h1>
+                </article>
+            </section>
+          <section class="row">
+              <article class="col-lg-12 col-xs-12" data-ng-controller="prodApp as produto">
+                  <h2><i class="fa fa-cart-plus" aria-hidden="true"></i>{{produto.titulo}}</h2>
+                  <label>Busca: <input ng-model="SearchUser"></label>
+                  <table class="table table-hover table-bordered">
+                      <thead>
+                          <tr data-ng-repeat="produto in Produtos.produtos">
+                              <th data=ng-repeat="(key,value) in produto.produtos[0]">{{ key }}</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr data-ng-repeat="produto in produto.produtos | orderBy:'nome' | filter:SearchUser">
+                              <td data-ng-repeat="(key,value) in produto">{{ value }}</td>
+                          </tr>
+                      <tbody>
+                  </table>
+              </article>
+          </section>  
+          <section class="row">
+               <article class="col-lg-12 col-xs-12" data-ng-controller="clienteApp as clientes">
+                   <h2><i class="fa fa-user" aria-hidden="true"></i>{{clientes.titulo}}</h2>
+                   <label>Busca: <input ng-model="SearchUser"></label>
+                  <table class="table table-hover table-bordered">
+                      <tbody>
+                          <tr data-ng-repeat="clientes in clientes.clientes | orderBy:'nome' | filter:SearchUser">
+                              <td data-ng-repeat="cliente in clientes">{{cliente}}</td>
+                          </tr>
+                      <tbody>
+                  </table>
+              </article>
+          </section>  
+          <section class="row">
+               <article class="col-lg-12 col-xs-12" data-ng-controller="fornecedorApp as fornecedores">
+                   <h2><i class="fa fa-users" aria-hidden="true"></i>{{fornecedores.titulo}}</h2>
+                   <label>Busca: <input ng-model="SearchUser"></label>
+                  <table class="table table-hover table-bordered">
+                      <tbody>
+                          <tr data-ng-repeat="fornecedores in fornecedores.fornecedores | orderBy:'nome' | filter:SearchUser">
+                              <td data-ng-repeat="fornecedor in fornecedores">{{fornecedor}}</td>
+                          </tr>
+                      <tbody>
+                  </table>
+              </article>
+          </section>  
+        </main>
+         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+         <script src="assets/jquery/dist/jquery.min.js" type="text/javascript"></script>
+         <!-- Include all compiled plugins (below), or include individual files as needed -->
+         <script src="assets/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+         <script src="assets/angular/angular.min.js" type="text/javascript"></script>
+         <script src="libs/estoqApp.js" type="text/javascript"></script>
+    </body>
+</html>
