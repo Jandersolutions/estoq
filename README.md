@@ -1,4 +1,5 @@
 <h1>Estoq</h1>
+<img src="http://jandersolutions.com/wp-content/uploads/2016/05/Seleção_026.png">
 <h2>Gerenciador comercial desenvolvido com AngularJS</h2>
 
 
